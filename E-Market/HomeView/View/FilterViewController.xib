@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="E_Market" customModuleProvider="target">
+            <connections>
+                <outlet property="applyButton" destination="Kzg-UY-v43" id="Rxh-3O-0Hy"/>
+                <outlet property="clearButton" destination="cCk-lS-RfS" id="Z4h-yl-IWU"/>
+                <outlet property="closeButton" destination="aEb-rw-CtE" id="Gan-wM-qzJ"/>
+                <outlet property="topView" destination="wMe-1K-JW6" id="OZa-sr-7XZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="FilterViewController" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMe-1K-JW6">
+                    <rect key="frame" x="0.0" y="59" width="393" height="36"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEb-rw-CtE">
+                            <rect key="frame" x="16" y="8" width="49" height="20"/>
+                            <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="xmark.app" catalog="system"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="hfy-Tp-63J"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCk-lS-RfS">
+                            <rect key="frame" x="313" y="8" width="64" height="20"/>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Clear"/>
+                            <connections>
+                                <action selector="clearButtonTapped:" destination="-1" eventType="touchUpInside" id="JtN-mY-wo9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="cCk-lS-RfS" secondAttribute="trailing" constant="16" id="5h1-tY-V1V"/>
+                        <constraint firstItem="cCk-lS-RfS" firstAttribute="top" secondItem="wMe-1K-JW6" secondAttribute="top" constant="8" id="C0W-vw-ZBL"/>
+                        <constraint firstAttribute="bottom" secondItem="aEb-rw-CtE" secondAttribute="bottom" constant="8" id="OYG-S9-eLD"/>
+                        <constraint firstAttribute="height" constant="36" id="UWF-fd-fT2"/>
+                        <constraint firstItem="aEb-rw-CtE" firstAttribute="leading" secondItem="wMe-1K-JW6" secondAttribute="leading" constant="16" id="hYo-f2-fRK"/>
+                        <constraint firstAttribute="bottom" secondItem="cCk-lS-RfS" secondAttribute="bottom" constant="8" id="iuP-3b-eTv"/>
+                        <constraint firstItem="aEb-rw-CtE" firstAttribute="top" secondItem="wMe-1K-JW6" secondAttribute="top" constant="8" id="lrc-uP-UXu"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kzg-UY-v43">
+                    <rect key="frame" x="16" y="768.66666666666663" width="361" height="33.333333333333371"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Apply">
+                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="applyButtonTapped:" destination="-1" eventType="touchUpInside" id="q4u-IT-LCx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Kzg-UY-v43" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="8Vw-zH-pdb"/>
+                <constraint firstItem="wMe-1K-JW6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="JVr-8w-c2E"/>
+                <constraint firstItem="wMe-1K-JW6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Vcd-b1-dUK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Kzg-UY-v43" secondAttribute="bottom" constant="16" id="e19-Yk-bGE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kzg-UY-v43" secondAttribute="trailing" constant="16" id="i3z-md-v2g"/>
+                <constraint firstItem="wMe-1K-JW6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sSc-WH-Jii"/>
+            </constraints>
+            <point key="canvasLocation" x="104.58015267175573" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark.app" catalog="system" width="128" height="114"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

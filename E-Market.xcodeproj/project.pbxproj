@@ -36,9 +36,29 @@
 				"/Localized: HomeView/View/Main.storyboard",
 				"/Localized: LaunchScreen.storyboard",
 				Assets.xcassets,
+				BasketView/View/BasketTableViewCell.swift,
+				BasketView/View/BasketTableViewCell.xib,
+				BasketView/View/BasketViewController.swift,
+				BasketView/View/BasketViewController.xib,
+				BasketView/ViewModel/BasketViewModel.swift,
 				Delegate/AppDelegate.swift,
 				Delegate/SceneDelegate.swift,
-				HomeView/View/ViewController.swift,
+				E_Market.xcdatamodeld,
+				FavoritesView/View/FavoritesViewController.swift,
+				FavoritesView/View/FavoritesViewController.xib,
+				FavoritesView/ViewModel/FavoritesViewModel.swift,
+				HomeView/Model/Products.swift,
+				HomeView/View/DetailViewController.swift,
+				HomeView/View/DetailViewController.xib,
+				HomeView/View/FilterViewController.swift,
+				HomeView/View/FilterViewController.xib,
+				HomeView/View/HomeCollectionViewCell.swift,
+				HomeView/View/HomeCollectionViewCell.xib,
+				HomeView/View/HomeViewController.swift,
+				HomeView/ViewModel/HomesViewModel.swift,
+				ProfileView/ProfileViewController.swift,
+				ProfileView/ProfileViewController.xib,
+				TabView/TabView.swift,
 			);
 			target = 31D0C7132E2E28580096BA84 /* E-Market */;
 		};
@@ -51,8 +71,15 @@
 				Delegate/AppDelegate.swift,
 				Delegate/SceneDelegate.swift,
 				E_Market.xcdatamodeld,
-				HomeView/View/ViewController.swift,
+				HomeView/View/DetailViewController.swift,
+				HomeView/View/DetailViewController.xib,
+				HomeView/View/FilterViewController.swift,
+				HomeView/View/FilterViewController.xib,
+				HomeView/View/HomeCollectionViewCell.swift,
+				HomeView/View/HomeCollectionViewCell.xib,
+				HomeView/View/HomeViewController.swift,
 				Info.plist,
+				TabView/TabView.swift,
 			);
 			target = 31D0C7372E2E285A0096BA84 /* E-MarketUITests */;
 		};
@@ -72,16 +99,6 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		31D0C7B52E2E2D960096BA84 /* Exceptions for "E-Market" folder in "Compile Sources" phase from "E-Market" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 31D0C7102E2E28580096BA84 /* Sources */;
-			membershipExceptions = (
-				E_Market.xcdatamodeld,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		31D0C73B2E2E285A0096BA84 /* E-MarketUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -92,7 +109,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				31D0C7B42E2E2D960096BA84 /* Exceptions for "E-Market" folder in "E-Market" target */,
-				31D0C7B52E2E2D960096BA84 /* Exceptions for "E-Market" folder in "Compile Sources" phase from "E-Market" target */,
 				31D0C7B62E2E2D960096BA84 /* Exceptions for "E-Market" folder in "E-MarketUITests" target */,
 			);
 			path = "E-Market";
