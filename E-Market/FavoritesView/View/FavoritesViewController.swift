@@ -91,6 +91,7 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.favoriteButtonAction = { [weak self] in
             guard let self = self else { return }
             self.viewModel.toggleFavorite(for: product)
+            NotificationCenter.default.post(name: .favoritesDidChange, object: nil)
             collectionView.reloadData()
         }
         cell.addToCartAction = {
@@ -126,4 +127,8 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+}
+
+extension Notification.Name {
+    static let favoritesDidChange = Notification.Name("favoritesDidChange")
 }

@@ -13,6 +13,8 @@ class TabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBasketBadge), name: .basketUpdated, object: nil)
+        updateBasketBadge()
     }
     
     private func setupTabBar() {
@@ -32,5 +34,11 @@ class TabViewController: UITabBarController {
             UINavigationController(rootViewController: $0)
         }
         selectedIndex = 0
+    }
+
+    @objc private func updateBasketBadge() {
+        let count = BasketViewModel.shared.items.count
+        let basketTab = tabBar.items?[1]
+        basketTab?.badgeValue = count > 0 ? "\(count)" : nil
     }
 }

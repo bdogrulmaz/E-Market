@@ -41,6 +41,7 @@ final class HomeViewController: UIViewController {
         fetchData()
         searchBar.delegate = self
         searchBar.backgroundImage = UIImage()
+        NotificationCenter.default.addObserver(self, selector: #selector(favoritesDidChange), name: .favoritesDidChange, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,11 +54,20 @@ final class HomeViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .favoritesDidChange, object: nil)
+    }
+
+    @objc private func favoritesDidChange() {
+        collectionView.reloadData()
+    }
+
     @IBAction func filterButtonTapped(_ sender: Any) {
-        let detailVC = FilterViewController(nibName: "FilterViewController", bundle: nil)
-        detailVC.delegate = self
-        detailVC.viewModel = self.viewModel
-        navigationController?.pushViewController(detailVC, animated: true)
+        let filterVC = FilterViewController(nibName: "FilterViewController", bundle: nil)
+        filterVC.delegate = self
+        filterVC.viewModel = self.viewModel
+        filterVC.modalPresentationStyle = .pageSheet
+        present(filterVC, animated: true, completion: nil)
     }
     
     private func setupLoadingView() {

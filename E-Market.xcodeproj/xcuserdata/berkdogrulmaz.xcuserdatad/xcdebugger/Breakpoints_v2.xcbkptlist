@@ -34,36 +34,6 @@
             endingLineNumber = "39"
             landmarkName = "fetchProducts(completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B5945B95-C048-458E-BD66-E287853F4DF1 - 8c993e24bef9a23c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "E_Market.HomesViewModel.fetchProducts(completion: (Swift.Optional&lt;Swift.Array&lt;E_Market.Product&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "E-Market.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/berkdogrulmaz/E-Market/E-Market/HomeView/ViewModel/HomesViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40">
-               </Location>
-               <Location
-                  uuid = "B5945B95-C048-458E-BD66-E287853F4DF1 - fc23c50124b937d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in E_Market.HomesViewModel.fetchProducts(completion: (Swift.Optional&lt;Swift.Array&lt;E_Market.Product&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "E-Market.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/berkdogrulmaz/E-Market/E-Market/HomeView/ViewModel/HomesViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -76,8 +46,8 @@
             filePath = "E-Market/HomeView/View/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "updateSearchEmptyView()"
             landmarkType = "7">
          </BreakpointContent>

@@ -66,7 +66,6 @@ class FilterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
         selectedSortIndex = viewModel.selectedSortIndex
         sortSegmentedControl.selectedSegmentIndex = selectedSortIndex
         priceSlider.value = viewModel.maxPrice
@@ -76,7 +75,6 @@ class FilterViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     private func setupFiltersUI() {
@@ -139,7 +137,7 @@ class FilterViewController: UIViewController {
         viewModel.maxPrice = priceSlider.value
         viewModel.applyFilters()
         delegate?.didApplyFilters(sortIndex: selectedSortIndex, maxPrice: priceSlider.value)
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
@@ -153,6 +151,6 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }

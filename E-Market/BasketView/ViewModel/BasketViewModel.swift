@@ -21,6 +21,7 @@ final class BasketViewModel {
         } else {
             items.append(BasketItem(product: product, quantity: 1))
         }
+        NotificationCenter.default.post(name: .basketUpdated, object: nil)
     }
     
     func updateQuantity(for item: BasketItem, change: Int) {
@@ -29,10 +30,12 @@ final class BasketViewModel {
         if items[index].quantity <= 0 {
             items.remove(at: index)
         }
+        NotificationCenter.default.post(name: .basketUpdated, object: nil)
     }
     
     func clearBasket() {
         items.removeAll()
+        NotificationCenter.default.post(name: .basketUpdated, object: nil)
     }
 }
 

@@ -52,3 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension Notification.Name {
+    static let basketUpdated = Notification.Name("basketUpdated")
+}
+

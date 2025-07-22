@@ -28,6 +28,7 @@ final class BasketViewController: UIViewController {
         tableView.reloadData()
         updateTotalPrice()
         updateEmptyState()
+        updateBasketBadge()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,6 +90,14 @@ final class BasketViewController: UIViewController {
         totalPriceLabel.text = "Toplam: \(viewModel.totalPrice) ₺"
     }
     
+    private func updateBasketBadge() {
+        let count = viewModel.items.count
+        if let tabBarController = self.tabBarController {
+            let basketTab = tabBarController.tabBar.items?[1]
+            basketTab?.badgeValue = count > 0 ? "\(count)" : nil
+        }
+    }
+    
     @IBAction func completeButtonClicked(_ sender: Any) {
     }
 }
@@ -108,12 +117,14 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
             self.viewModel.updateQuantity(for: item, change: 1)
             self.tableView.reloadData()
             self.updateTotalPrice()
+            self.updateBasketBadge()
         }
         cell.decreaseQuantity = { [weak self] in
             guard let self = self else { return }
             self.viewModel.updateQuantity(for: item, change: -1)
             self.tableView.reloadData()
             self.updateTotalPrice()
+            self.updateBasketBadge()
         }
         return cell
     }
