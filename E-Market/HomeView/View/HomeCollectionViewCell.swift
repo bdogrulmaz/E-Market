@@ -58,7 +58,9 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         favoriteButton.setImage(starImage, for: .normal)
         favoriteButton.tintColor = isFavorite ? .systemYellow : .lightGray
         if let url = URL(string: product.image) {
-            imageView.loadImage(from: url)
+            DispatchQueue.main.async {
+                self.imageView.loadImage(from: url)
+            }            
         }
     }
 }

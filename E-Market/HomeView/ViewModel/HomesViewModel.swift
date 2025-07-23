@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
 final class HomesViewModel {
     
@@ -17,24 +19,24 @@ final class HomesViewModel {
     var selectedSortIndex: Int = 0
     var maxPrice: Float = 0
     
+    init() {
+        loadFavorites()
+    }
+    
     func fetchProducts(completion: @escaping ([Product]?) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                print("Error fetching products: \(error)")
                 completion(nil)
                 return
             }
-            
             guard let data = data else {
                 completion(nil)
                 return
             }
-            
             do {
                 let products = try JSONDecoder().decode([Product].self, from: data)
                 completion(products)
             } catch {
-                print("Error decoding products: \(error)")
                 completion(nil)
             }
         }.resume()
@@ -77,10 +79,52 @@ final class HomesViewModel {
     }
     
     func toggleFavorite(for product: Product) {
-        if let index = favoriteProducts.firstIndex(where: { $0.id == product.id }) {
-            favoriteProducts.remove(at: index)
-        } else {
-            favoriteProducts.append(product)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<FavoriteProduct> = FavoriteProduct.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", product.id)
+        do {
+            let results = try context.fetch(fetchRequest)
+            if let existingFavorite = results.first {
+                context.delete(existingFavorite)
+            } else {
+                let favorite = FavoriteProduct(context: context)
+                favorite.id = product.id
+                favorite.name = product.name
+                favorite.price = product.priceValue
+                favorite.image = product.image
+                favorite.brand = product.brand
+                favorite.model = product.model
+                favorite.descriptionText = product.description
+                favorite.createdAt = product.createdAt
+            }
+            try context.save()
+            loadFavorites()
+        } catch {
+            
+        }
+    }
+    
+    func loadFavorites() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<FavoriteProduct> = FavoriteProduct.fetchRequest()
+        do {
+            let favorites = try context.fetch(fetchRequest)
+            self.favoriteProducts = favorites.map {
+                Product(
+                    createdAt: $0.createdAt ?? "",
+                    name: $0.name ?? "",
+                    image: $0.image ?? "",
+                    price: String($0.price),
+                    description: $0.descriptionText ?? "",
+                    model: $0.model ?? "",
+                    brand: $0.brand ?? "",
+                    id: $0.id ?? ""
+                )
+            }
+        } catch {
+            
         }
     }
     

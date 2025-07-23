@@ -99,6 +99,16 @@ final class BasketViewController: UIViewController {
     }
     
     @IBAction func completeButtonClicked(_ sender: Any) {
+        let alertController = UIAlertController(
+            title: "Uyarı",
+            message: "Devamı, işe alım süreci tamamlandıktan sonra :)",
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
